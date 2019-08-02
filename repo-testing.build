@@ -1,0 +1,58 @@
+#!/bin/bash
+
+DIE() {
+    local msg="$1"
+    echo "Error: $msg" >&2
+    exit 1
+}
+
+Main()
+{
+    local repo="repo-testing"        # name of the repo
+    local assetsdir="$PWD"           # assets folder
+    local pkgbuildsdir="$assetsdir/../PKGBUILDS"  # root folder of all folders with a PKGBUILD
+
+    local PKGBUILDS=(
+        # here relative paths not allowed because of BuildAurPkgsToDir
+        $pkgbuildsdir/downgrade/PKGBUILD
+        $pkgbuildsdir/endeavouros-keyring/PKGBUILD
+        $pkgbuildsdir/endeavouros-mirrorlist/PKGBUILD
+        $pkgbuildsdir/grub-theme-endeavouros/PKGBUILD
+        $pkgbuildsdir/grub-tools/PKGBUILD
+        $pkgbuildsdir/inxi/PKGBUILD
+        $pkgbuildsdir/kalu/PKGBUILD
+        $pkgbuildsdir/nvidia-installer/PKGBUILD
+        $pkgbuildsdir/reflector-auto/PKGBUILD
+        $pkgbuildsdir/yad/PKGBUILD
+        $pkgbuildsdir/yay/PKGBUILD
+    )
+
+    test -d .git || DIE "run this in the git folder (where the assets are)."
+
+    git pull || DIE "git pull failed."
+
+    # remove database and all signatures
+    rm -f $repo.{db,files} $repo.{db,files}.* *.sig
+
+    # build assets
+    BuildAurPkgsToDir "$assetsdir" "${PKGBUILDS[@]}" || DIE "BuildAurPkgsToDir failed."
+
+    # sign assets
+    repo-add-sign -n="$repo" -d="$assetsdir" -u=EndeavourOS || DIE "repo-add-sign failed."
+
+    # now the files are ready to be transferred to a repo
+    local answer
+    read -p "Transfer all files to github (Y/n)? " answer
+    answer="$(echo "$answer" | tr [:upper:] [:lower:])"
+    case "${answer::1}" in
+        ""|y) ;;
+        *) return ;;
+    esac
+
+    git add .         || DIE "git add failed."
+    git commit -m "." || DIE "git commit failed."
+    git push          || DIE "git push failed."
+
+}
+
+Main "$@"
