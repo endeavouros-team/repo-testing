@@ -8,7 +8,7 @@ DIE() {
 
 Main()
 {
-    local repo="repo-testing"        # name of the repo
+    local repo="endeavouros"         # name of the repo
     local assetsdir="$PWD"           # assets folder
     local pkgbuildsdir="$assetsdir/../PKGBUILDS"  # root folder of all folders with a PKGBUILD
 
