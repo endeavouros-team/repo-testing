@@ -7,4 +7,4 @@ You may use the repo e.g. with the following addition to your /etc/pacman.conf:
 SigLevel = PackageRequired
 Server = https://github.com/endeavouros-team/repo-testing/releases/download/assets
 </pre>
-To take advantage of this testing repo, place it before the [endeavouros] repo.
+To take advantage of this testing repo, place it before the **[endeavouros]** repo.
