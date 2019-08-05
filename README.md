@@ -3,7 +3,7 @@ A testing repo for EndeavourOS.
 
 Contains the same packages as the **[endeavouros]** repo, but the latest available versions. And as the name suggests, this is a testing repo, and can include packages that do not always work as expected.
 
-You may use the repo e.g. with the following addition to your /etc/pacman.conf:
+You may use the repo e.g. with the following addition to your **/etc/pacman.conf**:
 <pre>
 [endeavouros-testing]
 SigLevel = PackageRequired
