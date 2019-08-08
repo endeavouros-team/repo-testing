@@ -5,8 +5,7 @@ Contains the same packages as the **[endeavouros]** repo, but the latest availab
 
 You may use the repo e.g. with the following addition to your **/etc/pacman.conf**:
 <pre>
-# RENAMED the repo from endeavouros-testing to enavouros-developer!
-[endeavouros-developer]
+[endeavouros-testing]
 SigLevel = PackageRequired
 Server = https://github.com/endeavouros-team/repo-testing/releases/download/assets
 </pre>
