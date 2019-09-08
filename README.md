@@ -1,12 +1,16 @@
 # repo-testing
-A testing repo for EndeavourOS.
+A testing repos for EndeavourOS.
 
-Contains the same packages as the **[endeavouros]** repo, but the latest available versions. And as the name suggests, this is a testing repo, and can include packages that do not always work as expected.
+Packages may be the latest and greatest, but they can be outdated. Please check before using.
 
-You may use the repo e.g. with the following addition to your **/etc/pacman.conf**:
+You may use the repos e.g. with the following addition to your **/etc/pacman.conf**:
 <pre>
 [endeavouros-testing]
 SigLevel = PackageRequired
 Server = https://github.com/endeavouros-team/repo-testing/releases/download/assets
+
+[endeavouros-testing-dev]
+SigLevel = PackageRequired
+Server = https://github.com/endeavouros-team/repo-testing/releases/download/$arch
 </pre>
 To take advantage of this testing repo, place it before the **[endeavouros]** repo.
