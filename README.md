@@ -1,7 +1,7 @@
 # repo-testing
 A testing repos for EndeavourOS.
 
-Packages may be the latest and greatest, but they can be outdated. Please check before using.
+Packages here may be the latest and greatest, but they can be outdated. Please check before using.
 
 At the time of writing this (2019-Sep-08) the [endeavouros-testing] repo is outdated, don't use it.
 
