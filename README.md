@@ -13,4 +13,3 @@ Server = https://github.com/endeavouros-team/repo-testing/releases/download/asse
 [endeavouros-testing-dev]
 Server = https://github.com/endeavouros-team/repo-testing/releases/download/$arch
 </pre>
-To take advantage of this testing repo, place it before the **[endeavouros]** repo.
