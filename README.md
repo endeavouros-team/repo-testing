@@ -1,7 +1,7 @@
 # repo-testing
 A testing repo for EndeavourOS.
 
-Packages here are not meant for ordinary users, but EOS devs.
+Packages here are not meant for ordinary users, but EOS devs only.
 
 You may use the repo by adding the following entry to your **/etc/pacman.conf**:
 <pre>
